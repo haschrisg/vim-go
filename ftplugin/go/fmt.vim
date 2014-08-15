@@ -52,12 +52,14 @@ endif
 
 if g:go_fmt_autosave
     autocmd BufWritePre <buffer> :GoFmt
+    autocmd BufWritePre <buffer> :retab
 endif
 
 if g:go_fmt_commands
     command! -buffer GoFmt call s:GoFormat()
     command! -buffer GoDisableGoimports call s:GoDisableGoimports()
     command! -buffer GoEnableGoimports call s:GoEnableGoimports()
+
 endif
 
 function! s:GoDisableGoimports()
@@ -117,6 +119,7 @@ function! s:GoFormat()
 
     call delete(l:tmpname)
     call winrestview(l:curw)
+    execute 'retab'
 endfunction
 
 let b:did_ftplugin_go_fmt = 1

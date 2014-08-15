@@ -18,7 +18,7 @@ setlocal formatoptions-=t
 setlocal comments=s1:/*,mb:*,ex:*/,://
 setlocal commentstring=//\ %s
 
-setlocal noexpandtab
+"setlocal noexpandtab
 
 " keywordprg doesn't allow to use vim commands, override it
 nnoremap <buffer> <silent> K :GoDoc<cr>
